@@ -34,9 +34,11 @@ public class TaskAdapter extends  RecyclerView.Adapter<TaskAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String name = taskList.get(position).get("name");
         String date = taskList.get(position).get("date");
+        String description = taskList.get(position).get("description");
 //        Toast.makeText(holder.imageView.getContext(), taskList.get(position).get("name") +"     "+ taskList.get(position).get("date"), Toast.LENGTH_LONG).show();
 //        final MyListData myListData = listdata[position];
-        holder.textView.setText(name);
+        holder.nameView.setText(name);
+        holder.descriptionView.setText(description);
 //        holder.imageView.setImageResource(listdata[position].getImgId());
 //        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -53,12 +55,13 @@ public class TaskAdapter extends  RecyclerView.Adapter<TaskAdapter.ViewHolder>{
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
-        TextView textView;
+        TextView nameView, descriptionView;
         RelativeLayout relativeLayout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.imageView = itemView.findViewById(R.id.imageView);
-            this.textView = itemView.findViewById(R.id.textView);
+            this.nameView = itemView.findViewById(R.id.task_name_view);
+            this.descriptionView = itemView.findViewById(R.id.task_description_view);
             relativeLayout = itemView.findViewById(R.id.relativeLayout);
         }
     }
